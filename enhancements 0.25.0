@@ -5,8 +5,25 @@ Created on Sat Aug 10 11:41:40 2019
 
 @author: sola
 """
+
 "Groupby aggregation with relabeling"
 "Pandas has added special groupby behavior, known as “named aggregation”, for naming the output columns when"
 "applying multiple aggregation functions to specific columns"
+"input"
+import pandas as pd 
+animals = pd.DataFrame({'kind': ['cat', 'dog', 'cat', 'dog'],
+'height': [9.1, 6.0, 9.5, 34.0],
+'weight': [7.9, 7.5, 9.9, 198.0]})
 
 
+
+"Now to call the animals records"
+"input"
+animals
+
+"output"
+kind	height	weight
+0	cat	9.1	7.9
+1	dog	6.0	7.5
+2	cat	9.5	9.9
+3	dog	34.0	198.0

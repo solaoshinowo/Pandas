@@ -93,3 +93,28 @@ df.assign(var1=df.var1.str.split(',')).explode('var1')
 1  e    2
 1  f    2
  )
+
+
+
+
+"Json normalize with max_level param support"
+"json_normalize() normalizes the provided input dict to all nested levels. The new max_level parameter provides
+more control over which level to end normalization"
+
+"input"
+from pandas.io.json import json_normalize
+
+"output"
+data = [{
+'CreatedBy': {'Name': 'User001'},
+ 'Lookup': {'TextField': 'Some text',
+ 'UserField': {'Id': 'ID001', 'Name': 'Name001'}},
+'Image': {'a': 'b'}
+ }]
+
+"input"
+json_normalize(data, max_level=1)
+
+"output"
+CreatedBy.Name Lookup.TextField Lookup.UserField Image.a
+0 User001 Some text {'Id': 'ID001', 'Name': 'Name001'} b

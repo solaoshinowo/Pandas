@@ -44,3 +44,37 @@ kind min_height max_height average_weight
 
 cat   9.1        9.5          8.90
 dog   6.0        34.0         102.75
+
+
+
+
+"Printing of MultiIndex instances now shows tuples of each row and ensures that the tuple items are vertically
+aligned, so it’s now easier to understand the structure of the MultiIndex"
+
+"input"
+pd.MultiIndex.from_product([['a', 'abc'], range(500)])
+
+"output"
+MultiIndex([( 'a', 0),
+( 'a', 1),
+( 'a', 2),
+( 'a', 3),
+( 'a', 4),
+( 'a', 5),
+( 'a', 6),
+( 'a', 7),
+( 'a', 8),
+( 'a', 9),
+...
+('abc', 490),
+('abc', 491),
+('abc', 492),
+('abc', 493),
+('abc', 494),
+('abc', 495),
+('abc', 496),
+('abc', 497),
+('abc', 498),
+('abc', 499)],
+length=1000)
+

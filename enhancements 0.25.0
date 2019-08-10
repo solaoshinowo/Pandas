@@ -29,3 +29,18 @@ animals
 1	dog	   6.0	    7.5
 2	cat	   9.5	    9.9
 3	dog	   34.0	  198.0
+
+
+"in the next section, we will group each kind based on the minimum height,maximum weight, and average weight "
+"input"
+animals.groupby("kind").agg(
+ min_height=pd.NamedAgg(column='height', aggfunc='min'),
+ max_height=pd.NamedAgg(column='height', aggfunc='max'),
+average_weight=pd.NamedAgg(column='weight', aggfunc=np.mean),
+ )
+
+"output"
+kind min_height max_height average_weight
+
+cat   9.1        9.5          8.90
+dog   6.0        34.0         102.75
